@@ -1,5 +1,6 @@
 file(REMOVE_RECURSE
   "CMakeFiles/C___Data_Types_and_Functions.dir/Data_Types/linked_list.cpp.o"
+  "CMakeFiles/C___Data_Types_and_Functions.dir/Data_Types/matrix.cpp.o"
   "CMakeFiles/C___Data_Types_and_Functions.dir/Data_Types/stack.cpp.o"
   "CMakeFiles/C___Data_Types_and_Functions.dir/main.cpp.o"
   "C___Data_Types_and_Functions"

@@ -1,0 +1,42 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/noahwilder/Desktop/Coding/C++/C++ Data Types and Functions/Data Types/linked_list.cpp
+linked_list.h
+/Users/noahwilder/Desktop/Coding/C++/C++ Data Types and Functions/Data Types/linked_list.h
+iostream
+-
+optional
+-
+
+/Users/noahwilder/Desktop/Coding/C++/C++ Data Types and Functions/Data Types/linked_list.h
+iostream
+-
+optional
+-
+
+/Users/noahwilder/Desktop/Coding/C++/C++ Data Types and Functions/Data Types/matrix.cpp
+matrix.h
+/Users/noahwilder/Desktop/Coding/C++/C++ Data Types and Functions/Data Types/matrix.h
+
+/Users/noahwilder/Desktop/Coding/C++/C++ Data Types and Functions/Data Types/matrix.h
+iostream
+-
+
+/Users/noahwilder/Desktop/Coding/C++/C++ Data Types and Functions/Data Types/stack.cpp
+stack.h
+/Users/noahwilder/Desktop/Coding/C++/C++ Data Types and Functions/Data Types/stack.h
+iostream
+-
+
+/Users/noahwilder/Desktop/Coding/C++/C++ Data Types and Functions/Data Types/stack.h
+
+/Users/noahwilder/Desktop/Coding/C++/C++ Data Types and Functions/main.cpp
+iostream
+-
+
