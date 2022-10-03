@@ -15,7 +15,6 @@ inline bool isAlmostZero(double x) {
 
 
 
-
 template <size_t numberOfRows, size_t numberOfColumns>
 void matrix<numberOfRows, numberOfColumns>::decrementAndResetSharedReducedRowEchelonFormInstancesCounter() {
     *_sharedReducedRowEchelonFormInstancesCounter -= 1;
@@ -55,7 +54,6 @@ double matrix<numberOfRows, numberOfColumns>::unsafeGet(int row, int column) {
 
 template <size_t numberOfRows, size_t numberOfColumns>
 void matrix<numberOfRows, numberOfColumns>::updateReducedRowEchelonForm() {
-//        std::cout << "Recalculating..." << std::endl;
     _reducedRowEchelonFormNeedsUpdating = false;
     if (_reducedRowEchelonFormStorage == nullptr) {
         _reducedRowEchelonFormStorage = (double*) malloc(numberOfElements() * sizeof(double));
@@ -124,56 +122,6 @@ void matrix<numberOfRows, numberOfColumns>::requiresUpdate() {
     _reducedRowEchelonFormNeedsUpdating = true;
 }
 
-//    matrix(unsigned int* sharedGridInstancesCounter, unsigned int* sharedReducedRowEchelonFormInstancesCounter) {
-//        _sharedGridInstancesCounter = sharedGridInstancesCounter;
-//        _sharedReducedRowEchelonFormInstancesCounter = sharedReducedRowEchelonFormInstancesCounter;
-//    }
-//
-//    static matrix<numberOfRows, numberOfColumns> sharedReducedRowEchelonFormMatrix(double* reducedRowEchelonFormStorage, unsigned int* sharedReducedRowEchelonFormInstancesCounter) {
-//
-//        *sharedReducedRowEchelonFormInstancesCounter += 2;
-//
-//        matrix<numberOfRows, numberOfColumns> m = matrix<numberOfRows, numberOfColumns>(sharedReducedRowEchelonFormInstancesCounter, sharedReducedRowEchelonFormInstancesCounter);
-//
-//        m._grid = reducedRowEchelonFormStorage;
-//        m._reducedRowEchelonFormStorage = reducedRowEchelonFormStorage;
-//
-//        m._reducedRowEchelonFormNeedsUpdating = false;
-//
-//        return m;
-//    }
-//
-//    static matrix<numberOfRows, numberOfColumns> sharedGridMatrix(double* grid, unsigned int* sharedGridInstancesCounter) {
-//
-//        *sharedGridInstancesCounter += 1;
-//        unsigned int* sharedReducedRowEchelonFormInstancesCounter = (unsigned int*) malloc(sizeof(unsigned int));
-//        *sharedReducedRowEchelonFormInstancesCounter = 0;
-//
-//        matrix<numberOfRows, numberOfColumns> m = matrix<numberOfRows, numberOfColumns>(sharedGridInstancesCounter, sharedReducedRowEchelonFormInstancesCounter);
-//
-//        m._grid = grid;
-//        m._reducedRowEchelonFormStorage = nullptr;
-//
-//        m._reducedRowEchelonFormNeedsUpdating = true;
-//
-//        return m;
-//    }
-//
-//    static matrix<numberOfRows, numberOfColumns> sharedMatrix(double* grid, double* reducedRowEchelonFormStorage, unsigned int* sharedGridInstancesCounter, unsigned int* sharedReducedRowEchelonFormInstancesCounter) {
-//
-//        *sharedGridInstancesCounter += 1;
-//        *sharedReducedRowEchelonFormInstancesCounter += 1;
-//
-//        matrix<numberOfRows, numberOfColumns> m = matrix<numberOfRows, numberOfColumns>(sharedGridInstancesCounter, sharedReducedRowEchelonFormInstancesCounter);
-//
-//        m._grid = grid;
-//        m._reducedRowEchelonFormStorage = reducedRowEchelonFormStorage;
-//
-//        m._reducedRowEchelonFormNeedsUpdating = false;
-//
-//        return m;
-//    }
-
 template <size_t numberOfRows, size_t numberOfColumns>
 void matrix<numberOfRows, numberOfColumns>::initializeSharedInstancesCounters() {
     _sharedGridInstancesCounter = (unsigned int*) malloc(sizeof(unsigned int));
@@ -212,12 +160,6 @@ matrix<numberOfRows, numberOfColumns>::matrix(const matrix<numberOfRows, numberO
         _reducedRowEchelonFormNeedsUpdating = otherMatrix._reducedRowEchelonFormNeedsUpdating;
         _sharedReducedRowEchelonFormInstancesCounter = otherMatrix._sharedReducedRowEchelonFormInstancesCounter;
         _sharedGridInstancesCounter = otherMatrix._sharedGridInstancesCounter;
-//            matrix<numberOfRows, numberOfColumns> newMatrix = matrix<numberOfRows, numberOfColumns>::sharedMatrix(otherMatrix._grid, otherMatrix._reducedRowEchelonFormStorage, otherMatrix._sharedGridInstancesCounter, otherMatrix._sharedReducedRowEchelonFormInstancesCounter);
-//            _grid = newMatrix._grid;
-//            _reducedRowEchelonFormStorage = newMatrix._reducedRowEchelonFormStorage;
-//            _reducedRowEchelonFormNeedsUpdating = newMatrix._reducedRowEchelonFormNeedsUpdating;
-//            _sharedReducedRowEchelonFormInstancesCounter = newMatrix._sharedReducedRowEchelonFormInstancesCounter;
-//            _sharedGridInstancesCounter = newMatrix._sharedGridInstancesCounter;
     }
 
 }
@@ -301,10 +243,6 @@ template <size_t numberOfRows, size_t numberOfColumns>
 constexpr int matrix<numberOfRows, numberOfColumns>::numberOfElements() {
     return numberOfRows * numberOfColumns;
 }
-
-//    double* operator[] (int idx) {
-//        return grid[idx];
-//    }
 
 template <size_t numberOfRows, size_t numberOfColumns>
 double matrix<numberOfRows, numberOfColumns>::get(int row, int column) {
